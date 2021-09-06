@@ -1,0 +1,45 @@
+<h1>Friends</h1>
+
+<input type="search" id="task_name_search_field" class="form-control" placeholder="Enter name..." data-behavior="autocomplete">
+
+
+<%= form_tag(friends_path, method: :get) do %>
+  <%= text_field_tag :search, params[:search], id: 'tag-autocomplete' %>
+    <%= submit_tag "Search" %>
+<% end %>
+
+
+
+<table class="table table-bordered">
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Twitter</th>
+    <th></th>
+
+
+  </tr>
+
+  <% @friends.each do |friend| %>
+    <tr>
+      <td><%= friend.first_name %></td>
+      <td><%= friend.last_name %></td>
+      <td><%= friend.email %></td>
+      <td><%= friend.phone %></td>
+      <td><%= friend.twitter %></td>
+      <td> <%= link_to 'Show', friend, class: "btn btn-xs btn-success" %>
+           <%= link_to 'Edit', edit_friend_path(friend), class: "btn btn-xs btn-primary" %>
+           <%= link_to 'Destroy', friend,
+                      method: :delete,
+                      data: {confirm: 'Are you sure?'}, class: "btn btn-xs btn-danger" %>
+      </td>
+
+    </tr>
+  <% end %>
+</table>
+
+
+
+<%= link_to 'New Friend', new_friend_path, class: "btn btn-xs btn-success" %>

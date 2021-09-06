@@ -1,0 +1,27 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Fluid jumbotron</h1>
+    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+  </div>
+</div>
+
+
+
+<p><%= @friend.first_name %></p>
+
+<p><%= @friend.last_name %></p>
+
+
+<p><%= @friend.email %></p>
+<p><%= @friend.phone %></p>
+<p><%= @friend.twitter %></p>
+
+
+
+<%= link_to 'Edit', edit_friend_path(@friend), class: "btn btn-xs btn-primary" %>
+
+<%= link_to 'Destroy', @friend,
+                method: :delete,
+                data: {confirm: 'Are you sure?'}, class: "btn btn-xs btn-danger" %>
+
+<%= link_to 'Back', friends_path, class: "btn btn-xs btn-success" %>
